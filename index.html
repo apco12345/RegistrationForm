@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        .main{
+        display: flex;
+        border: 2px solid black;
+        width: 400px;
+        height: 420px;
+        margin: auto;
+        padding: 30px;
+        font-weight: bolder;
+        font-size: 20px;
+        background-color: white;
+        }
+        input{
+            background-color: lightgray;
+        }
+        input:hover{
+            background-color:bisque;
+        }
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        input{
+            height: 25px; 
+            font-size:medium;
+            width: 400px;
+            font-size:large;
+            font-family: Times New Roman;
+        }
+        button{
+            padding: 5px 170px; 
+            font-size: 20px; 
+            background-color:green; 
+            font-weight: bold; 
+            font-family: Times New Roman;
+            width: 400px;
+        }
+        button:hover{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <form name="data" onsubmit="return mydata()" action="loginSubmit.html">
+        <h2>Login Form</h2><hr><br>
+        <label for="text">Username:</label><br>
+        <input type="text" id="U1" placeholder="Enter Your Username"><br><br>
+        <label for="text">Password:</label><br>
+        <input type="text" id="P1" placeholder="Enter Your Password"><br><br>
+        <button type="submit" value="submit">Login</button><br>
+        <h3>Forgot<a href="Password">Username/Password?</a></h3>
+        <h3>Don't have an account?<a href="Registration Form.html">Create account</a></h3>
+    </form></div>
+    <script>
+        function mydata()
+        {
+            var A=document.getElementById("U1").value;
+            var B=document.getElementById("P1").value;
+            
+            if(A=="")
+            {
+                alert("Please enter your Username!");
+                document.data.U1.focus();
+                return false;
+            }
+            else if(B.length<8||B.length>8)
+                {
+                  alert("Password should be of 8 Digits ! Please enter valid password!");
+                  document.data.P1.focus();
+                  return false;
+                }
+            else if(isNaN(B))
+                {
+                    alert("Only numbers are allowed ! Please enter valid number!");
+                    document.data.P1.focus();
+                    return false;
+                }
+            return true;
+        }
+    </script>
+</body>
+</html>
