@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        .main{
+            display: flex;
+            border: 2px solid black;
+            width: 400px;
+            height: 650px;
+            margin: auto;
+            padding: 30px;
+            font-weight: bolder;
+            font-size: 20px;
+            background-color: white;
+        
+        }
+        input{
+            background-color: lightgray;
+        }
+        input:hover{
+            background-color:bisque;
+        }
+        button{
+            display: flex;
+            justify-content: center;
+            padding: 5px 170px; 
+            font-size: 20px; 
+            background-color:green; 
+            font-weight: bold; 
+            font-family: Times New Roman;
+            width: 400px;
+        }
+        button:hover{
+            background-color: lightgreen;
+            cursor: pointer;
+        }
+        .select{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 5px;
+            font-size: 20px; 
+            font-weight: bold; 
+            font-family: Times New Roman;
+        }
+        option{
+            font-size: 15px; 
+            font-weight: bold;    
+        }
+        input{
+            width: 400px;
+            height: 25px;
+            font-size:large;
+            font-family: Times New Roman;
+        }
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <form name="Mydata" onsubmit="return Data()" action="FormSubmit.html" >
+        <h2>Registration Form</h2><hr><br>
+        <label for="Name">Name:</label><br>
+        <input type="text" id="N1" placeholder="Enter Your Name"><br><br>
+        <label for="MobileNo">Mobile No:</label><br>
+        <input type="text" id="M1" placeholder="Enter Your Mobile No."><br><br>
+        <label for="Email">E-mail:</label><br>
+        <input type="text" id="E1" placeholder="Enter Your E-mail"><br><br>
+        <label for="Password">Password:</label><br>
+        <input type="text" id="P1" placeholder="Enter Your Password"><br><br>
+        <label for="Confirm Password">Confirm Password:</label><br>
+        <input type="text" id="C1" placeholder="Confirm Password"><br><br>
+        <div class="select">
+        <label for="City">City:</label>
+        <select>
+            <option selected>Select City</option>
+            <option value="">Prayagraj</option>
+            <option value="">Varanasi</option>
+            <option value="">Kanpur</option>
+            <option value="">Lucknow</option>
+            <option value="">Delhi</option>
+            <option value="">Gorakhpur</option>
+        </select>
+        <label for="txt10">State:</label>
+        <select>
+            <option selected>Select State</option>
+            <option value="">Uttar Pradesh</option>
+            <option value="">Bihar</option>
+            <option value="">Madhya Pradesh</option>
+            <option value="">Punjab</option>
+            <option value="">Mumbai</option>
+            <option value="">Gujarat</option>
+        </select></div><br>
+        
+        <button type="submit" value="submit">Submit</button>
+        
+        <h3>Already have an account?
+        <a href="login.html">Sign in.</a></h3>
+    </form></div>
+    <script>
+        function Data()
+        {
+            var A=document.getElementById("N1").value;
+            var B=document.getElementById("M1").value;
+            var C=document.getElementById("E1").value;
+            var D=document.getElementById("P1").value;
+            var E=document.getElementById("C1").value;
+
+            if(A =="" || B =="" || C =="" || D =="" || E =="")
+            {
+                alert("All fields are mandatory!");
+                return false;
+            }
+            else if(A=="")
+            {
+                alert("Please enter your name!");
+                document.Mydata.N1.focus();
+                return false;
+            }
+            else if(B.length<10||B.length>10)
+            {
+                alert("Please enter your 10 digit mobile number !");
+                document.Mydata.M1.focus();
+                return false;
+            }
+            else if(D.length<8||D.length>8)
+            {
+                alert("Password should be of 8 digit !");
+                document.Mydata.P1.focus();
+                return false;
+            }
+            else if(isNaN(D))
+            {
+                alert("Only Numbers are Allowed here !");
+                document.Mydata.P1.focus();
+                return false;
+            }
+            else if(E!=D)
+            {
+                alert("Please enter same password !");
+                document.Mydata.C1.focus();
+                return false;
+            }
+            return true;     
+        }
+        function validateEmail(C)
+        {
+            if(!C.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/))
+            {
+                alert("Please enter valid email !");
+                return false;
+            }
+            return true;
+        }
+        
+    </script>
+</body>
+</html>
